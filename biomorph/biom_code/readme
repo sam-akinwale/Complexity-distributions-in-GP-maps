@@ -1,0 +1,34 @@
+1. KC.py: Core library. Computes Kolmogorov complexity (LZ-based) of a string. Imported by other scripts.
+
+2. biomorph_functions.py: Core library. Draws biomorphs and computes line coordinates from a genotype. Imported by other scripts.
+
+3. genotype_to_raster.py: Core library. Converts a 9-gene biomorph genotype into a binary phenotype string (rasterized image). Imported by other scripts.
+
+4. GPproperties.py: Core library. Computes GP map properties: robustness, evolvability, neutral set sizes, and LZ complexity of 2D phenotype arrays. Imported by other scripts.
+
+5. neutral_component.py: Core library. Identifies neutral components (connected sets of genotypes mapping to the same phenotype) using graph connectivity. Imported by other scripts.
+
+6. make_biom.py: Generates random biomorphs and saves genotype, phenotype, and complexity. Basic version, no mutations.
+
+   python3 make_biom.py 20000 3 1 8 30 5
+   
+   n_biomorphs=20000, genemax=3 (ranges from -3 to 3), g9min=1, g9max=8, resolution=30, threshold=5
+
+  6.1 make_biom_wvisuals.py: Same as above but also saves PNG visualizations of selected biomorphs.
+  
+
+7. A_make_biom_mutants_v2.py. Generates random biomorphs, deduplicates by phenotype, then produces 0, 1, and 2 mutation. 
+
+   python3 A_make_biom_mutants_v2.py 100000 3 1 8 30 5
+   
+   n_biomorphs=100000, genemax=3, g9min=1, g9max=8, resolution=30, threshold=5
+   produces file: biom_100000_3_1_8_30_5_v2_random.txt etc.  
+   
+   
+8. D_make_biom_quintiles_v2.py: Takes output from above, divides by complexity quintile, applies 1 cumulative mutation per individual, recalculates phenotype and complexity.   
+
+   python3 D_make_biom_quintiles_v2.py input_file.txt 10
+   
+   input file, max_mutations=10
+   
+
