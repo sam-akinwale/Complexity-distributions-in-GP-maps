@@ -1,0 +1,21 @@
+1. HP_pfh.py: Core library. Defines the lattice, direction mappings, contact map calculation, and free energy    function. Imported by other scripts.
+
+2. KC.py: Core library. Computes Kolmogorov complexity (LZ-based) of a string. Imported by other scripts.
+
+3. simple_mutants.py: Exhaustively enumerates all valid structures on the lattice, then generates single mutants, double mutants, and random sequences. Example input:
+
+         python3 simple_mutants.py 9 100 1000
+         
+         seq_length=9 (3x3 lattice), 100 single mutants, 100 double mutants, 1000 random seqs
+         
+4. fold_random_binary.py: for larger sequences where full enumeration is infeasible. Generates random binary sequences and folds each using Monte Carlo simulated annealing. Example input:    
+
+         python3 fold_random_binary.py 8 5000 5000
+         
+         seq_length=8 (7x7 lattice), generate 5000 random sequences, 5000 MC moves per fold
+         
+5. fold_quin_mutate.py: Takes output from fold_random_binary.py, divides sequences into KC complexity quintiles, samples 10 sequences per quintile, then applies 1–10 cumulative mutations to each and refolds. Produces data for panel 4 as in shown in the paper.
+
+         python fold_quin_mutate.py random_sample_mc_n8.txt mutant_analysis.txt 5000
+         
+         input file, output file, MC moves per fold
