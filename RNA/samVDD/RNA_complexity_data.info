@@ -1,0 +1,117 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Info file for RNA_complexity_data, accompanying the manuscript "RNA secondary structures are conserved but random"
+
+Authors: Samuel H. A. von der Dunk, Nora S. Martin, Kamal Dingle, and Ard A. Louis.
+
+All analysis and data handled by Sam von der Dunk.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Overview of the dataset.
+Note the heterogeneity due to many sources, and focus on different parts within each subset.
+
+
+
+Dataset      Size
+-------      ----
+SeqNull    120000
+PheNull     70000
+RNAC        20940
+tRNA         6497
+Scer         5714
+rRNA         3322
+RFAM         1114
+
+Column  Variable                                	   Size
+------  --------    					   ----
+1		Label		             		 227587
+2		Dataset		             		 227587
+3		Domain		             		  30759
+4		Genus		             		  30759
+5		Species		             		  30759
+6		Taxon		             		  20940
+7		Localization                 		  12211
+8		Type		             		  37587
+9		RFAM		             		   7014
+10		Length		             		 227587
+11		Structural complexity	     		 227587
+12		Sequence complexity          		 156473
+13		Sequence entropy	     		 157587
+14		GC-content		     		 156473
+15		G-content		     		 157587
+16		C-content		     		 157587
+17		A-content		     		  95533
+18		U-content		     		 157587
+19		#Bulges		             		 106650
+20		#Hairpin loops		     		 106650
+21		#Junctions		                 106650
+22		#Paired sites		                 106650
+23		#Stacks		                           5714
+24		Robustness (lambda)		          26700
+25		Genome size (log nt pairs)           	   7773
+26		Genomic GC-content		           7654
+27		GC-content genomic context (10kb)     	   5714
+28		Sequence		                 135533
+29		Structure		                 206647
+
+
+
+
+##############################################################################################################################
+
+Description of datasets (see column "Dataset").
+
+
+-- tRNA (transfer RNA, 20 different types)
+
+Data provided by Bernhard Kuhle, based on the publication "Relaxed sequence constraints favor mutational freedom in idiosyn-
+cratic metazoan mitochondrial tRNAs" by Kuhle et al. (DOI: https://doi.org/10.1038/s41467-020-14725-y). Some labels appeared
+in both cytoplasmic and mitochondrial subsets provided by Kuhle, so we have added "Cyto" or "Mito" to all labels in order to
+maintain unique labels across the full RNA dataset.
+
+
+-- rRNA (ribosomal RNA, LSU & SSU)
+
+Data extracted from SILVA, and filtered based on phylogenetic diversity (see Methods in manuscript). Robustness data and
+genome annotations available, taxonomic assignment at the species level, but with many genes assigned to uncultured taxa (e.g.
+uncultured archaeon), for which e.g. genome size is not trustworthy. Note that for rRNA 'Mitochondria' and 'Chloroplast' are re-
+corded as taxonomic identifiers (in the 'Domain' column), representing their vertical inheritance.
+
+
+-- Scer (Saccharomyces cerevisiae)
+
+Mix of data from NCBI/SGD (coding sequences), RNAcentral (noncoding sequences), supplemented with SGD identifiers. Robustness
+data was calculated for cytoplasmic coding RNA and for all noncoding RNA.
+
+
+-- RFAM (experimental data)
+
+Only Structural complexity and length available. Identifiers refer to RFAM. Secondary structures were obtained from 3D struct-
+ures using x3dna. One set of 3D structures contained no pseudo-knots ("No pseudo-knots") and could be directly used to cal-
+culate structural complexity. The other set of 3D structures did contain pseudo-knots, which has to be removed prior to cal-
+culation of structural complexity ("Removed pseudo-knots").
+
+
+-- SeqNull (sequence null model)
+
+Randomly sampled secondary structures according to the sequence null model (see paper), 10000 per fixed length. The data does
+not explicitly appear in Fig. 3, but has been used to calculate the relative complexity values for all other RNA molecules,
+and can be seen in the SI, Fig. S14. For most sets, only complexity values and sequence data were generated. For the datasets
+with L=[100,500], only the first 10k molecules from the total sample (100k) were collected. In addition, for these samples,
+robustness values were calculated for the first 1k molecules, and motif counts are collected.
+
+
+-- PheNull (phenotype null model)
+
+Randomly sampled secondary structures according to the phenotype null model (see paper), 10000 per fixed length. These struc-
+tures do not have corresponding sequences. Similar to SeqNull, there is motif data for the subsets with L=[100,500].
+
+
+-- RNAC (RNACentral data, fixed length subsets)
+
+Natural RNA data retrieved from RNACentral of various fixed lengths. Note that here we have robustness values based on full
+sampling of all one-step mutants, i.e. slightly more accurate than those based on 100 sampled mutants for the other datasets.
+
+##############################################################################################################################
