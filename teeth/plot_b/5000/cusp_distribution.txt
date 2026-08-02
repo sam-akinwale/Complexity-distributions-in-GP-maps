@@ -1,0 +1,6 @@
+Cusp_Value	Frequency
+1	6801
+2	1707
+3	1389
+4	16
+5	1

@@ -1,0 +1,4 @@
+Cusp_Value	Frequency
+1	9841
+2	112
+3	41
