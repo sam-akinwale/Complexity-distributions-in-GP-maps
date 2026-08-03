@@ -5,35 +5,52 @@ This directory contains the code and processed data used to generate the Tooth W
 ## Repository contents
 
 - `tooth_WT_master.ipynb` — analysis and figure-generation notebook.
-- `plot_a/` — processed phenotype-frequency datasets.
-- `plot_b/plot_b_data/` — processed data used to generate the entropy analyses.
+- `plot_a/` — processed phenotype-frequency datasets used for Panel A.
+- `plot_b/` — processed entropy datasets used for Panel B.
+- `plot_C/` — processed mean OPC datasets used for Panel C.
 
 ## Data files
 
-The notebook uses the following processed datasets:
+The notebook uses the following processed datasets to reproduce the three-panel figure.
 
-### Main figures
+### Panel A
 
 - `plot_a/filtered_6000_opc_cusp.txt`
 - `plot_a/filtered_10000_opc_cusp.txt`
-- `plot_b/plot_b_data/` (all processed data files in this directory)
 
-### Supplementary analyses
+### Panel B
 
-The notebook also includes analyses using alternative phenotype-frequency thresholds:
+The notebook reads the following processed files:
 
-- `plot_a/filter_opcfreq1/filtered_2000_opc_cusp_nosingletons.txt`
-- `plot_a/filter_opcfreq1/filtered_6000_opc_cusp_nosingletons.txt`
-- `plot_a/filter_opcfreq1/filtered_10000_opc_cusp_nosingletons.txt`
+- `plot_b/plot_b_data/6000/6000_entropy.txt`
+- `plot_b/plot_b_data/6000/6000_meanOPC.txt`
+- `plot_b/plot_b_data/7000/7000_entropy.txt`
+- `plot_b/plot_b_data/7000/7000_meanOPC.txt`
+- `plot_b/plot_b_data/8000/8000_entropy.txt`
+- `plot_b/plot_b_data/8000/8000_meanOPC.txt`
+- `plot_b/plot_b_data/9000/9000_entropy.txt`
+- `plot_b/plot_b_data/9000/9000_meanOPC.txt`
+- `plot_b/plot_b_data/10000/10000_entropy.txt`
+- `plot_b/plot_b_data/10000/10000_meanOPC.txt`
 
-and
+### Panel C
 
-- `plot_a/filter_opc_freq3/filtered_2000_opc_cusp_min4.txt`
-- `plot_a/filter_opc_freq3/filtered_6000_opc_cusp_min4.txt`
-- `plot_a/filter_opc_freq3/filtered_10000_opc_cusp_min4.txt`
+The notebook reads the processed mean OPC files contained in
 
-These processed datasets are included in the repository and are sufficient to reproduce the analyses contained in the notebook.
+```
+plot_C/meanOPC_files/
+```
+
+specifically:
+
+- `Q1_mut0_meanOPC.txt` through `Q1_mut20_meanOPC.txt`
+- `Q2_mut0_meanOPC.txt` through `Q2_mut20_meanOPC.txt`
+- `Q3_mut0_meanOPC.txt` through `Q3_mut20_meanOPC.txt`
+- `Q4_mut0_meanOPC.txt` through `Q4_mut20_meanOPC.txt`
+- `Q5_mut0_meanOPC.txt` through `Q5_mut20_meanOPC.txt`
+
+for a total of **105 processed data files**.
 
 ## Notes
 
-The notebook reads processed datasets directly and does not require access to the original simulation outputs.
+All datasets required to reproduce the published three-panel figure are processed data files included in this repository. The notebook does not require access to the original simulation outputs and does not generate intermediate datasets.
