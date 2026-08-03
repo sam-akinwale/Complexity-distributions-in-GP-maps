@@ -1,29 +1,43 @@
 # Biomorph Model – Data and Reproducibility Notes
 
-This directory contains the code and processed data used to generate the Biomorph model figures.
+This directory contains the code and processed data used to generate the Biomorph model figures presented in the manuscript.
 
-## Included in this repository
+## Repository contents
 
-* `Biomorph_master.ipynb` — plotting and analysis notebook
-* `data/` — processed summary files required to reproduce the published figures
-* Final figure outputs
+- `Biomorph_master_revised.ipynb` — analysis and figure-generation notebook.
+- `plot_a/`, `plot_b/`, `plot_c/`, `plot_d/` — processed data files required to reproduce the published figures.
 
-## Large distribution files
+## Data files
 
-The full distribution files used to generate Plot A:
+The notebook uses the following processed datasets:
 
-* `unified_plotA.txt`
-* `P_dist.txt`
+- `plot_a/plot_a_files/unified_plotA_complexity.csv`
+- `plot_b/plot_b_files/plotB_biomorph_entropy_global_vs_local.txt`
+- `plot_c/plotC_data_equalN.txt`
+- `plot_d/plotD_data_incl0.txt`
 
-are approximately 1 GB each and are **not included in this repository** due to GitHub size constraints.
+These files are included in the repository and are sufficient to reproduce the published figures.
 
-These raw distribution files are available via institutional storage (University of Oxford) upon request.
+## Regenerating the Plot A processed data
 
-To fully reproduce Plot A, place the raw distribution files in:
+The processed file
 
 ```
-biomorph/plot_a/plot_a_files/
+plot_a/plot_a_files/unified_plotA_complexity.csv
 ```
 
-Please contact the author for access to the full datasets if required.
+can be regenerated from the full raw distribution file
 
+```
+plot_a/plot_a_files/unified_plotA.txt
+```
+
+The raw distribution file is approximately 1 GB and is not included in this repository because of GitHub file size limits.
+
+The raw dataset is available from the authors (University of Oxford) upon reasonable request. To regenerate the processed Plot A data, place `unified_plotA.txt` in
+
+```
+plot_a/plot_a_files/
+```
+
+and run the preprocessing section of `Biomorph_master_revised.ipynb`.
