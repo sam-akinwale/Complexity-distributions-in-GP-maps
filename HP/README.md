@@ -1,29 +1,44 @@
 # HP Model – Data and Reproducibility Notes
 
-This directory contains the code and processed data used to generate the HP model figures.
+This directory contains the code and processed data used to generate the HP model figures presented in the manuscript.
 
-## Included in this repository
+## Repository contents
 
-* `HP_master.ipynb` — plotting and analysis notebook
-* `data/` — processed summary files required to reproduce the published figures
-* Final figure outputs
+- `HP_master_revised.ipynb` — analysis and figure-generation notebook.
+- `plot_a/`, `plot_c/`, and `plot_d/` — processed datasets required to reproduce the published figures.
 
-## Large distribution files
+## Data files
 
-The full distribution files used to generate Plot A:
+The notebook uses the following processed datasets:
 
-* `unified_plotA_B_D.txt`
-* `P_dist.txt`
+- `plot_a/plot_a_files/unified_plotA_B_D.txt`
+- `plot_c/plotC_data.txt`
+- `plot_d/plotD_data_incl0.txt`
 
-are approximately 1 GB each and are **not included in this repository** due to GitHub size constraints.
+These files are included in the repository and are sufficient to reproduce the published figures.
 
-These raw distribution files are available via institutional storage (University of Oxford) upon request.
+## Raw distribution files
 
-The repository contains all code required to reproduce the figures once the full distribution files are placed in:
+The Plot A comparison also uses
 
 ```
-HP/plot_a/plot_a_files/
+forsam3/HP_sizes/random_sample_mc_n15.txt
 ```
 
-Please contact the author for access to the full datasets if required.
+In addition, the supplementary preprocessing section of the notebook reads all files matching
 
+```
+forsam3/HP_sizes/random_sample_mc_n*.txt
+```
+
+to analyse the complexity distributions across HP sequence lengths.
+
+These raw distribution files are large and are therefore not included in this repository because of GitHub file size limits.
+
+The raw datasets are available from the authors (University of Oxford) upon reasonable request. To rerun the preprocessing, place the files in
+
+```
+forsam3/HP_sizes/
+```
+
+before executing the corresponding notebook cells.
