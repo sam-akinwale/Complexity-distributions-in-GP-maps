@@ -1,4 +1,4 @@
-# Robustness and Evolvability Across Genotype–Phenotype Maps
+# Complexity Distributions in Genotype-Phenotype Maps
 
 This repository contains the code and processed data used to reproduce the figures presented in the manuscript.
 
